@@ -7,5 +7,7 @@ declare namespace NodeJS {
     TOKEN_PREF_KEY: string;
     AUTH_URL: string;
     AUTH_ENDPOINT: string;
+    IV_KEY: string;
+    ENCRYPTION_KEY: string;
   }
 }

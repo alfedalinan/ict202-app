@@ -1,6 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 import { IAuthRepository } from "src/interfaces/IAuthRepository";
+import { injectable } from "tsyringe";
 
+@injectable()
 export class AuthRepository implements IAuthRepository {
     
     async getAuth(email?: string, password?: string): Promise<any> {

@@ -32,6 +32,7 @@ import { defineComponent, ref } from 'vue';
 import { IAuthService } from 'src/interfaces/IAuthService';
 import { containers } from 'src/common/DependencyInjection';
 import { Credentials } from 'src/components/entities/Credentials';
+import { encryptString } from "src/utils/Helpers";
 
 export default defineComponent({
   name: 'Login',
@@ -48,7 +49,7 @@ export default defineComponent({
           let authService: IAuthService = containers.resolve("IAuthService");
           let credentials: Credentials = {
               email: this.username,
-              password: this.password
+              password: encryptString(this.password)
           }
         
           authService.login(credentials)
