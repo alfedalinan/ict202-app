@@ -54,10 +54,12 @@ export default defineComponent({
         
           authService.login(credentials)
             .then((response) => {
-                console.log(response);
+                
+                this.$router.push({ path: "/" });
+
             })
             .catch((err) => {
-                console.log(err);
+                
             })
 
       }

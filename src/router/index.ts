@@ -38,15 +38,15 @@ export default route(function (/* { store, ssrContext } */) {
 
     const restricted = constants.RESTRICTED_PATHS;
 
-    if (restricted.indexOf(to.path) >= 0 && localStorage.getItem(process.env.USER_PREF_KEY)) {
+    // if (restricted.indexOf(to.path) >= 0 && localStorage.getItem(process.env.USER_PREF_KEY)) {
       
-      console.log(`Restricted access, going back to login..`);
+    //   console.log(`Restricted access, going back to login..`);
 
-      next({ name: 'Login' });
+    //   next({ name: 'Login' });
 
-      return;
+    //   return;
 
-    }
+    // }
 
     next();
   });
