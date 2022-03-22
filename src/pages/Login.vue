@@ -16,7 +16,7 @@
                 v-model="password"
             ></q-input>
             <br>
-            <!-- <div class="text-negative" v-if="restrictionLabel != ''" >{{ restrictionLabel }}</div> -->
+            <div class="text-negative" v-if="incorrect" >{{ label }}</div>
             <q-btn color="primary" id="login-btn" label="Login" v-on:click="initLogin()"/>
         </q-form>
         <div class="q-pa-md text-center">
@@ -41,11 +41,13 @@ export default defineComponent({
       return {
         username: "",
         password: "",
+        incorrect: false,
+        label: "Invalid username/password"
       }
   },
   methods: {
       initLogin() {
-
+          this.incorrect = false;
           let authService: IAuthService = containers.resolve("IAuthService");
           let credentials: Credentials = {
               email: this.username,
@@ -54,12 +56,11 @@ export default defineComponent({
         
           authService.login(credentials)
             .then((response) => {
+                console.log(response);
                 
-                this.$router.push({ path: "/" });
-
             })
             .catch((err) => {
-                
+                this.incorrect = true;
             })
 
       }
@@ -70,5 +71,9 @@ export default defineComponent({
 <style>
  #login-btn {
      width: 100%
+ }
+ .text-negative {
+     text-align: center;
+     padding-bottom: 15px;
  }
 </style>

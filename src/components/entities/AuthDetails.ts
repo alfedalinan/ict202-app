@@ -1,6 +1,4 @@
 export interface AuthDetails {
-    email?: string,
-    accessToken?: string,
-    refreshToken?: string
-    tokenExpiry?: number
+    accessToken?: string
+    expiresIn?: number
 }

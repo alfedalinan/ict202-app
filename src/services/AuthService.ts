@@ -14,7 +14,6 @@ export class AuthService implements IAuthService {
     async login(credentials: Credentials): Promise<AuthDetails> {
         
         let authDetails: AuthDetails = await this.authRepository.getAuth(credentials.email, credentials.password);
-
         return authDetails;
 
     }
