@@ -10,3 +10,13 @@ export const encryptString = (text: string): string => {
 
     return `${cipherIv}:${cipherText}`;
 }
+
+export const getUserData = (key: string): string => {
+
+    let dataString: any = localStorage.getItem(process.env.USER_PREF_KEY);
+
+    let userData: any = JSON.parse(dataString);
+
+    return userData[key];
+
+}

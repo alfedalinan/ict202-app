@@ -1,7 +1,7 @@
 import { AuthDetails } from "src/components/entities/AuthDetails";
 import { Credentials } from "src/components/entities/Credentials";
-import { IAuthRepository } from "src/interfaces/IAuthRepository";
-import { IAuthService } from "src/interfaces/IAuthService";
+import { IAuthRepository } from "src/interfaces/Auth/IAuthRepository";
+import { IAuthService } from "src/interfaces/Auth/IAuthService";
 import { inject, injectable } from "tsyringe";
 
 @injectable()

@@ -8,6 +8,8 @@ declare namespace NodeJS {
     AUTH_URL: string;
     AUTH_API: string;
     AUTH_ENDPOINT: string;
+    SIGNUP_API: string;
+    SIGNUP_ENDPOINT: string;
     IV_KEY: string;
     ENCRYPTION_KEY: string;
   }

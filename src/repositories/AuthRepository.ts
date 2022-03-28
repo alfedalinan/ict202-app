@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { IAuthRepository } from "src/interfaces/IAuthRepository";
+import { IAuthRepository } from "src/interfaces/Auth/IAuthRepository";
 import { injectable } from "tsyringe";
 
 @injectable()
@@ -11,9 +11,7 @@ export class AuthRepository implements IAuthRepository {
         let consume: AxiosResponse = await axios.post(url, { email, password });
 
         if (consume.status == 200) {
-
             return consume.data;
-
         }
         
         return null;

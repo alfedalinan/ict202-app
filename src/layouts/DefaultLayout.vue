@@ -91,6 +91,12 @@ const links = [
         icon: "contact_page",
         link: "#/physicians",
         caption: "Manage primary care providers"
+    },
+    {
+        title: "Users",
+        icon: "person",
+        link: "#/users/list",
+        caption: "See who can access this portal"
     }
 ];
 

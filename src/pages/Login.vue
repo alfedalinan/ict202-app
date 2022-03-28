@@ -26,10 +26,9 @@
 </template>
 
 <script lang="ts">
-import { Todo, Meta } from 'components/models';
 import ExampleComponent from 'components/CompositionComponent.vue';
 import { defineComponent, ref } from 'vue';
-import { IAuthService } from 'src/interfaces/IAuthService';
+import { IAuthService } from 'src/interfaces/Auth/IAuthService';
 import { containers } from 'src/common/DependencyInjection';
 import { Credentials } from 'src/components/entities/Credentials';
 import { encryptString } from "src/utils/Helpers";
@@ -56,7 +55,15 @@ export default defineComponent({
         
           authService.login(credentials)
             .then((response) => {
-                console.log(response);
+                
+                let userData: any = {
+                    email: this.username,
+                    accessToken: response.accessToken
+                };
+
+                localStorage.setItem(process.env.USER_PREF_KEY, JSON.stringify(userData));
+
+                this.$router.push({ path: '/' });
                 
             })
             .catch((err) => {

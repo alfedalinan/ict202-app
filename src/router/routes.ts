@@ -4,6 +4,8 @@ import Login from "pages/Login.vue";
 import Dashboard from "pages/Dashboard.vue";
 import RecordAdd from "pages/records/Add.vue";
 import RecordList from "pages/records/List.vue";
+import UserList from "pages/users/List.vue";
+import UserAdd from "pages/users/Add.vue";
 
 import AuthLayout from "layouts/AuthLayout.vue";
 import DefaultLayout from "layouts/DefaultLayout.vue";
@@ -35,6 +37,20 @@ const routes: RouteRecordRaw[] = [
     component: DefaultLayout,
     children: [
       { path: '', component: RecordAdd, name: 'Add Record' }
+    ]
+  },
+  {
+    path: '/users/list',
+    component: DefaultLayout,
+    children: [
+      { path: '', component: UserList, name: 'List of Users' }
+    ]
+  },
+  {
+    path: '/users/add',
+    component: DefaultLayout,
+    children: [
+      { path: '', component: UserAdd, name: 'Add New User' }
     ]
   },
   // Always leave this as last one,
